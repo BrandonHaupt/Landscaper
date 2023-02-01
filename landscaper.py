@@ -14,10 +14,12 @@ def mow_lawn():
     print(f"You found a lawn and asked the owner to mow it, you used {tool['name']} and you recieved {tool['profit']}.")
     game["money"] += tool["profit"]
 
+# CHECK STATS FUNCTION
 def check_stats():
     tool = tools[game["lawn-tools"]]
     print(f'You currently have {game["money"]} and are using {tool["name"]}')
     
+# CHECK UPGRADE FUNCTION
 def upgrade():
     if(game["lawn-tools"] >= len(tools) - 1):
         print("No more upgrades available!")
@@ -34,13 +36,14 @@ def upgrade():
     game["lawn-tools"] += 1
     print("You upgraded your tool!")
     
+# GAME WIN FUNCTION
 def win_check():
     if(game["lawn-tools"] == 4 and game["money"] >= win_amount):
         print("You won the game! Congradulations!!!!")
         return True
     return False
 
-
+# PRIMARY LOOP
 while(True):
     user_choice = input("[1] Mow Lawn [2] Check Stats [3] Upgrade Tool [Q] Quit")
     
